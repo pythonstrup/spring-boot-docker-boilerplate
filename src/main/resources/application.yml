@@ -24,6 +24,11 @@ spring:
     username: test
     password: Asdf1234!!
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: true
 ---
 # test config
 spring:
@@ -35,4 +40,9 @@ spring:
     username: test
     password: Asdf1234!!
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: true
 ---

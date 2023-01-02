@@ -1,5 +1,10 @@
 # Spring Boot Boilerplate
 
+## Description
+
+- Article Entity is For Redis
+- User Entity is For MySQL JPA
+
 ## Dependencies
 
 - Spring Boot DevTools
