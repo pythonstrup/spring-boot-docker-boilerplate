@@ -1,0 +1,38 @@
+# default Profile
+spring:
+  profiles:
+    active: "build"
+---
+# build config
+spring:
+  config:
+    activate:
+      on-profile: "build"
+  datasource:
+    url: "jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul"
+    username: test
+    password: Asdf1234!!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+---
+# local config
+spring:
+  config:
+    activate:
+      on-profile: "local"
+  datasource:
+    url: "jdbc:mysql://db:3306/test?serverTimezone=Asia/Seoul"
+    username: test
+    password: Asdf1234!!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+---
+# test config
+spring:
+  config:
+    activate:
+      on-profile: "test"
+  datasource:
+    url: "jdbc:mysql://test-db:3306/test?serverTimezone=Asia/Seoul"
+    username: test
+    password: Asdf1234!!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+---
