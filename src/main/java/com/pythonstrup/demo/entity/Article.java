@@ -1,7 +1,5 @@
 package com.pythonstrup.demo.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -14,8 +12,7 @@ import java.util.Date;
 @RedisHash("Article")
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
     private String title;
 

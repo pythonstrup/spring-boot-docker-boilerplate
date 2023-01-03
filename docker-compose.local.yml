@@ -67,6 +67,16 @@ services:
     networks:
       - backbone
 
+  test-redis:
+    container_name: test-redis
+    image: redis
+    platform: linux/x86_64
+    restart: always
+    ports:
+      - "6381:6379"
+    networks:
+      - backbone
+
 networks:
   backbone:
     name: backbone

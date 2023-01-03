@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.controller.dto.article;
+package com.pythonstrup.demo.controller.dto.article.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class PostArticleResponseDTO {
 
-    private int id;
+    private String id;
 }

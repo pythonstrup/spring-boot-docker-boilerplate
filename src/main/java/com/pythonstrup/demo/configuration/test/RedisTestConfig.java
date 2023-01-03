@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.configuration;
+package com.pythonstrup.demo.configuration.test;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,9 +8,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 
 @Configuration
-@Profile("local")
-public class RedisConfig {
-
+@Profile("test")
+public class RedisTestConfig {
     @Value("${spring.data.redis.host}")
     private String host;
 

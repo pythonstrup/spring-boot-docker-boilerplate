@@ -1,16 +1,15 @@
-package com.pythonstrup.demo.controller.dto.article;
+package com.pythonstrup.demo.controller.dto.article.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Data
-public class GetArticleResponseDTO {
-    private int id;
+public class SaveArticleServiceDTO {
     private String title;
-    private String content;
+    private String contents;
 }

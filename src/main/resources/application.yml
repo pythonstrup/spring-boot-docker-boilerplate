@@ -13,6 +13,15 @@ spring:
     username: test
     password: Asdf1234!!
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
 ---
 # local config
 spring:
@@ -29,6 +38,10 @@ spring:
     hibernate:
       ddl-auto: create
     open-in-view: true
+  data:
+    redis:
+      host: localhost
+      port: 6380
 ---
 # test config
 spring:
@@ -36,13 +49,17 @@ spring:
     activate:
       on-profile: "test"
   datasource:
-    url: "jdbc:mysql://test-db:3306/test?serverTimezone=Asia/Seoul"
+    url: "jdbc:mysql://localhost:3308/test?serverTimezone=Asia/Seoul"
     username: test
-    password: Asdf1234!!
+    password: test
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create
     open-in-view: true
+  data:
+    redis:
+      host: localhost
+      port: 6381
 ---

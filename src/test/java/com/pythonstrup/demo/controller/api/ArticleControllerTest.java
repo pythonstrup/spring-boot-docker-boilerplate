@@ -1,13 +1,16 @@
 package com.pythonstrup.demo.controller.api;
 
-import com.pythonstrup.demo.controller.dto.article.GetArticleResponseDTO;
+import com.pythonstrup.demo.common.dto.ResultDTO;
+import com.pythonstrup.demo.controller.dto.article.response.GetArticleResponseDTO;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class ArticleControllerTest {
 
     @Autowired
@@ -19,11 +22,11 @@ public class ArticleControllerTest {
         // given
 
         // when
-        ResponseEntity<GetArticleResponseDTO> response = articleController.get();
+        ResponseEntity<ResultDTO<GetArticleResponseDTO>> response = articleController.get();
 
         // then
-        String title = response.getBody().getTitle();
-        String content = response.getBody().getContent();
+        String title = response.getBody().getData().getTitle();
+        String content = response.getBody().getData().getContent();
         Assertions.assertThat(title).isEqualTo("Hello");
         Assertions.assertThat(content).isEqualTo("Hello Contents");
     }
