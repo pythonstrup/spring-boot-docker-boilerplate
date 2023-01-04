@@ -1,7 +1,6 @@
 package com.pythonstrup.demo.controller.api;
 
-import com.pythonstrup.demo.common.dto.ResultDTO;
-import com.pythonstrup.demo.controller.dto.article.response.GetArticleResponseDTO;
+import com.pythonstrup.demo.controller.dto.article.response.ResultGetArticleResponse;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class ArticleControllerTest {
         // given
 
         // when
-        ResponseEntity<ResultDTO<GetArticleResponseDTO>> response = articleController.get();
+        ResponseEntity<ResultGetArticleResponse> response = articleController.get();
 
         // then
         String title = response.getBody().getData().getTitle();

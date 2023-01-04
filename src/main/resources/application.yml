@@ -22,6 +22,13 @@ spring:
     redis:
       host: localhost
       port: 6379
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
 ---
 # local config
 spring:
@@ -42,6 +49,14 @@ spring:
     redis:
       host: localhost
       port: 6380
+springdoc:
+  swagger-ui:
+    swagger-ui:
+      path: /swagger-ui
+    api-docs:
+      path: /api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
 ---
 # test config
 spring:

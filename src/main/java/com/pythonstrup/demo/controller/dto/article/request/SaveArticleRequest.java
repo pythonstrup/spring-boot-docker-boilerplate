@@ -1,6 +1,7 @@
-package com.pythonstrup.demo.controller.dto.article.web;
+package com.pythonstrup.demo.controller.dto.article.request;
 
 import com.pythonstrup.demo.controller.dto.article.service.SaveArticleServiceDTO;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SaveArticleRequestDTO {
+public class SaveArticleRequest {
+
+    @Schema(description = "게시글 제목", example = "오늘의 모임")
     private String title;
+
+    @Schema(description = "게시글 내용", example = "오늘의 모임은 000입니다!!")
     private String contents;
 
     public SaveArticleServiceDTO toServiceDto() {

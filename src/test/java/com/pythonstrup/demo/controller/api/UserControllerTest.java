@@ -1,7 +1,6 @@
 package com.pythonstrup.demo.controller.api;
 
-import com.pythonstrup.demo.common.dto.ResultDTO;
-import com.pythonstrup.demo.controller.dto.user.FindUserResponseDTO;
+import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
 import com.pythonstrup.demo.entity.User;
 import com.pythonstrup.demo.repository.UserRepository;
 import org.assertj.core.api.Assertions;
@@ -28,7 +27,7 @@ public class UserControllerTest {
         userRepository.save(user);
 
         // when
-        ResponseEntity<ResultDTO<FindUserResponseDTO>> response = userController.findUser("hello");
+        ResponseEntity<ResultFindUserReponse> response = userController.findUser("hello");
 
         // then
         int id = response.getBody().getData().getId();

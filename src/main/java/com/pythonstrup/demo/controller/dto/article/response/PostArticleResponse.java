@@ -1,5 +1,6 @@
 package com.pythonstrup.demo.controller.dto.article.response;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PostArticleResponseDTO {
+public class PostArticleResponse {
 
+    @Schema(description = "Key", example = "1")
     private String id;
 }
