@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
+
 @Builder
 @Getter
 public class ErrorResponse {
@@ -17,5 +19,5 @@ public class ErrorResponse {
     @NotBlank
     private final String message;
 
-    // 빈 객체 할당 - 다른 응답과 형식을 맞추기 위해
+    private List<String> errors;
 }

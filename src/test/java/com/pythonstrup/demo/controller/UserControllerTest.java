@@ -2,7 +2,7 @@ package com.pythonstrup.demo.controller;
 
 import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
 import com.pythonstrup.demo.entity.User;
-import com.pythonstrup.demo.handler.exceptions.user.UsernameBadRequestException;
+import com.pythonstrup.demo.handler.exceptions.user.UsernameNotFoundException;
 import com.pythonstrup.demo.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -38,11 +38,11 @@ public class UserControllerTest {
     }
 
     @Test
-    void username_bad_request_test() {
+    void username_not_found_test() {
         // given
 
         // when & then
-        Assertions.assertThrows(UsernameBadRequestException.class, () -> {
+        Assertions.assertThrows(UsernameNotFoundException.class, () -> {
             userController.findUser("nothing");
         });
     }

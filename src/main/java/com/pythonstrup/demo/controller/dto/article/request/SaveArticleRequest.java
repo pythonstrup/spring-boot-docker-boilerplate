@@ -15,11 +15,11 @@ import lombok.NoArgsConstructor;
 public class SaveArticleRequest {
 
     @Schema(description = "게시글 제목", example = "오늘의 모임")
-    @NotBlank
+    @NotBlank(message = "제목에 빈 값을 입력할 수 없습니다.")
     private String title;
 
     @Schema(description = "게시글 내용", example = "오늘의 모임은 000입니다!!")
-    @NotBlank
+    @NotBlank(message = "게시글 내용에 빈 값을 넣을 수 없습니다.")
     private String contents;
 
     public SaveArticleServiceDTO toServiceDto() {

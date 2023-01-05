@@ -1,10 +1,10 @@
 package com.pythonstrup.demo.controller;
 
-import com.pythonstrup.demo.common.dto.ErrorResponse;
 import com.pythonstrup.demo.controller.dto.user.response.FindUserResponse;
 import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
 import com.pythonstrup.demo.entity.User;
 import com.pythonstrup.demo.service.UserService;
+import com.pythonstrup.demo.utils.swagger.user.UsernameNotFoundErrorSwagger;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -33,7 +33,7 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = {@Content(schema = @Schema(implementation = ResultFindUserReponse.class))}),
             @ApiResponse(responseCode = "400", description = "잘못된 유저 정보 입력",
-                    content = {@Content(schema = @Schema(implementation = ErrorResponse.class))})
+                    content = {@Content(schema = @Schema(implementation = UsernameNotFoundErrorSwagger.class))})
     })
     @GetMapping("/user")
     public ResponseEntity<ResultFindUserReponse> findUser(@Parameter @RequestParam String username) {
