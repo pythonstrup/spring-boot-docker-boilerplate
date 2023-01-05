@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.controller.api;
+package com.pythonstrup.demo.controller;
 
 import com.pythonstrup.demo.controller.dto.article.response.GetArticleResponse;
 import com.pythonstrup.demo.controller.dto.article.response.PostArticleResponse;
@@ -36,8 +36,8 @@ public class ArticleController {
 
     @Operation(summary = "save article", description = "article 저장")
     @PostMapping("/article")
-    public ResponseEntity<ResultPostArticleResposne> save(@Parameter @RequestBody SaveArticleRequest saveArticleRequestDTO) {
-        String id = articleService.save(saveArticleRequestDTO.toServiceDto()).getId();
+    public ResponseEntity<ResultPostArticleResposne> save(@Parameter @RequestBody SaveArticleRequest saveArticleRequest) {
+        String id = articleService.save(saveArticleRequest.toServiceDto()).getId();
         PostArticleResponse data = PostArticleResponse.builder().id(id).build();
         ResultPostArticleResposne response = new ResultPostArticleResposne("OK", "", data);
         return new ResponseEntity<>(response, HttpStatus.OK);

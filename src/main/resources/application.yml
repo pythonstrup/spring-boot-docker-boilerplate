@@ -22,6 +22,11 @@ spring:
     redis:
       host: localhost
       port: 6379
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
 springdoc:
   swagger-ui:
     path: /swagger-ui
@@ -49,12 +54,16 @@ spring:
     redis:
       host: localhost
       port: 6380
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
 springdoc:
   swagger-ui:
-    swagger-ui:
-      path: /swagger-ui
-    api-docs:
-      path: /api-docs
+    path: /swagger-ui
+  api-docs:
+    path: /api-docs
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
 ---
@@ -77,4 +86,9 @@ spring:
     redis:
       host: localhost
       port: 6381
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
 ---

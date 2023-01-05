@@ -1,9 +1,10 @@
-package com.pythonstrup.demo.controller.api;
+package com.pythonstrup.demo.controller;
 
 import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
 import com.pythonstrup.demo.entity.User;
+import com.pythonstrup.demo.handler.exceptions.user.UsernameBadRequestException;
 import com.pythonstrup.demo.repository.UserRepository;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,7 +33,17 @@ public class UserControllerTest {
         // then
         int id = response.getBody().getData().getId();
         String username = response.getBody().getData().getUsername();
-        Assertions.assertThat(id).isEqualTo(1);
-        Assertions.assertThat(username).isEqualTo("hello");
+        Assertions.assertEquals(id, 1);
+        Assertions.assertEquals(username, "hello");
+    }
+
+    @Test
+    void username_bad_request_test() {
+        // given
+
+        // when & then
+        Assertions.assertThrows(UsernameBadRequestException.class, () -> {
+            userController.findUser("nothing");
+        });
     }
 }

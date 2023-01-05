@@ -1,6 +1,6 @@
-package com.pythonstrup.demo.controller.api;
+package com.pythonstrup.demo.controller;
 
-import com.pythonstrup.demo.common.dto.ResultBadRequestDTO;
+import com.pythonstrup.demo.common.dto.ErrorResponse;
 import com.pythonstrup.demo.controller.dto.user.response.FindUserResponse;
 import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
 import com.pythonstrup.demo.entity.User;
@@ -33,7 +33,7 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = {@Content(schema = @Schema(implementation = ResultFindUserReponse.class))}),
             @ApiResponse(responseCode = "400", description = "잘못된 유저 정보 입력",
-                    content = {@Content(schema = @Schema(implementation = ResultBadRequestDTO.class))})
+                    content = {@Content(schema = @Schema(implementation = ErrorResponse.class))})
     })
     @GetMapping("/user")
     public ResponseEntity<ResultFindUserReponse> findUser(@Parameter @RequestParam String username) {

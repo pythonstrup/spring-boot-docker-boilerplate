@@ -1,5 +1,7 @@
 package com.pythonstrup.demo.entity;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -14,9 +16,14 @@ public class Article {
     @Id
     private String id;
 
+    @NotNull
+    @Min(1)
     private String title;
 
+    @NotNull
+    @Min(1)
     private String content;
 
+    @NotNull
     private Date createAt;
 }

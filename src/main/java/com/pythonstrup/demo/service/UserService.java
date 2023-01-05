@@ -1,9 +1,12 @@
 package com.pythonstrup.demo.service;
 
 import com.pythonstrup.demo.entity.User;
+import com.pythonstrup.demo.handler.exceptions.user.UsernameBadRequestException;
 import com.pythonstrup.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -12,6 +15,11 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+        Optional<User> user = userRepository.findByUsername(username);
+        if(user.isEmpty()) {
+            throw new UsernameBadRequestException();
+        }
+
+        return user.get();
     }
 }

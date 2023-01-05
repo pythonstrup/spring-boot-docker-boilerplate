@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.controller.api;
+package com.pythonstrup.demo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
