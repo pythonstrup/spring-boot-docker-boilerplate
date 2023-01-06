@@ -3,7 +3,12 @@ package com.pythonstrup.demo.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Collection;
 
 @Builder
 @AllArgsConstructor
@@ -22,7 +27,15 @@ public class User {
     private String username;
 
     @NotNull
-    @Size(min=4, max=20)
+    @Size(min=4, max=100)
     @Column(nullable = false)
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name="user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id")
+    )
+    private Collection<Role> roles;
 }

@@ -43,6 +43,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, e.getStatusCode());
     }
 
+    // 404
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFoundApi() {
+        ErrorResponse response = ErrorResponse.builder()
+                .status(ExceptionStatus.PAGE_NOT_FOUND)
+                .message(ExceptionMeassge.PAGE_NOT_FOUND)
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
     // Custom Exception 에서 처리되지 않은 400
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorResponse> handleRuntimeError(final RuntimeException e){
@@ -52,16 +62,6 @@ public class GlobalExceptionHandler {
                 .message(e.getMessage())
                 .build();
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-    }
-
-    // 404
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public ResponseEntity<ErrorResponse> handleNotFoundApi() {
-        ErrorResponse response = ErrorResponse.builder()
-                .status(ExceptionStatus.PAGE_NOT_FOUND)
-                .message(ExceptionMeassge.PAGE_NOT_FOUND)
-                .build();
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
     // 500
