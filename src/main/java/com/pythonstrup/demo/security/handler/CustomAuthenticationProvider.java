@@ -1,6 +1,6 @@
 package com.pythonstrup.demo.security.handler;
 
-import com.pythonstrup.demo.security.dto.UserDto;
+import com.pythonstrup.demo.security.dto.CustomUserDetails;
 import com.pythonstrup.demo.security.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        UserDto user = (UserDto) customUserDetailService.loadUserByUsername(authentication.getName());
+        CustomUserDetails user = (CustomUserDetails) customUserDetailService.loadUserByUsername(authentication.getName());
 
         String requestPassword = authentication.getCredentials().toString();
         if (!passwordEncoder.matches(requestPassword, user.getPassword())) {

@@ -1,6 +1,6 @@
 package com.pythonstrup.demo.security.handler;
 
-import com.pythonstrup.demo.security.dto.UserDto;
+import com.pythonstrup.demo.security.dto.CustomUserDetails;
 import com.pythonstrup.demo.security.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +19,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        UserDto user = (UserDto) userDetailsService.loadUserByUsername(authentication.getName());
+        CustomUserDetails user = (CustomUserDetails) userDetailsService.loadUserByUsername(authentication.getName());
 
         String requestPassword = authentication.getCredentials().toString();
         if (!passwordEncoder.matches(requestPassword, user.getPassword())) {

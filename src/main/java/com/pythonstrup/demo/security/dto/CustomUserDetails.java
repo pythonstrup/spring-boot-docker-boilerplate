@@ -1,26 +1,33 @@
 package com.pythonstrup.demo.security.dto;
 
+import com.pythonstrup.demo.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
 import java.util.Collection;
 
 @Data
-public class UserDto implements UserDetails {
+public class CustomUserDetails implements UserDetails {
 
-    private int id;
-    private String password;
-    private String role;
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    private User user;
+
+    public CustomUserDetails(User user) {
+        this.user = user;
+    }
 
     @Override
     public String getPassword(){
-        return password;
+        return this.user.getPassword();
     }
 
     @Override
     public String getUsername(){
-        return String.valueOf(id);
+        return this.user.getUsername();
     }
 
     @Override

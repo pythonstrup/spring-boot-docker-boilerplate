@@ -8,8 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Collection;
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,11 +29,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name="user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id")
-    )
-    private Collection<Role> roles;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "user_roles",
+//            joinColumns = @JoinColumn(name="user_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id")
+//    )
+//    private Collection<Role> roles;
 }

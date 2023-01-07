@@ -38,11 +38,10 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests((authorize) -> authorize
                 .requestMatchers("/v1/article/**").authenticated()
-                .requestMatchers("/v1/auth/**").permitAll()
                 .anyRequest().permitAll()
         );
 
-        http.formLogin().disable()
+        http.formLogin().and()
             .addFilterAfter(
                     new JsonUsernamePasswordAuthenticationFilter(customAuthenticationSuccessHandler,
                             customAuthenticationFailureHandler, customAuthenticationManager),
