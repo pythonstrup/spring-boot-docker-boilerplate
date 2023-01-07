@@ -1,9 +1,7 @@
 package com.pythonstrup.demo.controller;
 
-import com.pythonstrup.demo.controller.dto.auth.request.LoginRequest;
 import com.pythonstrup.demo.controller.dto.auth.request.SignupRequest;
 import com.pythonstrup.demo.controller.dto.auth.response.LoginFailureResponse;
-import com.pythonstrup.demo.controller.dto.auth.response.LoginResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.LoginSuccessResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.SignupResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.result.ResultLoginFailureResponse;
@@ -36,12 +34,6 @@ public class AuthController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = {@Content(schema = @Schema(implementation = ResultLoginResponse.class))}),
     })
-    @PostMapping("/login")
-    public ResponseEntity<ResultLoginResponse> login(@Parameter @RequestBody LoginRequest loginRequest) {
-        LoginResponse data = LoginResponse.builder().build();
-        ResultLoginResponse response = new ResultLoginResponse("OK", "", data);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
 
     @PostMapping("signup")
     public ResponseEntity<ResultSignupResponse> signup(@Parameter @Valid @RequestBody SignupRequest signupRequest) {
