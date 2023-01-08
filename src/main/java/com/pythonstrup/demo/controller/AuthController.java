@@ -1,12 +1,8 @@
 package com.pythonstrup.demo.controller;
 
 import com.pythonstrup.demo.controller.dto.auth.request.SignupRequest;
-import com.pythonstrup.demo.controller.dto.auth.response.LoginFailureResponse;
-import com.pythonstrup.demo.controller.dto.auth.response.LoginSuccessResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.SignupResponse;
-import com.pythonstrup.demo.controller.dto.auth.response.result.ResultLoginFailureResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.result.ResultLoginResponse;
-import com.pythonstrup.demo.controller.dto.auth.response.result.ResultLoginSuccessResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.result.ResultSignupResponse;
 import com.pythonstrup.demo.entity.User;
 import com.pythonstrup.demo.service.AuthService;
@@ -46,17 +42,11 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("login/success")
-    public ResponseEntity<ResultLoginSuccessResponse> loginSuccess() {
-        LoginSuccessResponse data = LoginSuccessResponse.builder().build();
-        ResultLoginSuccessResponse response = new ResultLoginSuccessResponse("OK", "", data);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PostMapping("login/success")
+    public void loginSuccess() {}
 
-    @GetMapping("login/fail")
-    public ResponseEntity<ResultLoginFailureResponse> loginFailure() {
-        LoginFailureResponse data = LoginFailureResponse.builder().build();
-        ResultLoginFailureResponse response = new ResultLoginFailureResponse("OK", "", data);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @PostMapping("login/fail")
+    public void loginFailure() {}
 }

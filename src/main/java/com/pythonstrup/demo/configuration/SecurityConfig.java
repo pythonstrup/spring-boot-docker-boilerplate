@@ -34,18 +34,19 @@ public class SecurityConfig {
     @Bean
     @Order(SecurityProperties.BASIC_AUTH_ORDER)
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable();
+        http.csrf().disable();
+
+        http.formLogin().disable();
+
+        http.addFilterBefore(
+                new JsonUsernamePasswordAuthenticationFilter(customAuthenticationSuccessHandler,
+                        customAuthenticationFailureHandler, customAuthenticationManager),
+                UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeHttpRequests((authorize) -> authorize
                 .requestMatchers("/v1/article/**").authenticated()
                 .anyRequest().permitAll()
         );
-
-        http.formLogin().and()
-            .addFilterAfter(
-                    new JsonUsernamePasswordAuthenticationFilter(customAuthenticationSuccessHandler,
-                            customAuthenticationFailureHandler, customAuthenticationManager),
-                    UsernamePasswordAuthenticationFilter.class);
 
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/v1/auth/logout"))

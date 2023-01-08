@@ -1,5 +1,6 @@
 package com.pythonstrup.demo.security.handler;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +11,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.util.StreamUtils;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 @Slf4j
 public class JsonUsernamePasswordAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
@@ -30,14 +36,18 @@ public class JsonUsernamePasswordAuthenticationFilter extends AbstractAuthentica
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-            throws AuthenticationException {
+            throws AuthenticationException, IOException {
         log.info("Run JsonUsernamePasswordAuthenticationFilter");
         if (!request.getMethod().equals(HTTP_METHOD) || !request.getContentType().equals("application/json")) {
-            log.info(request.getMethod());
             throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
         }
-        String username = request.getParameter(SPRING_SECURITY_FORM_USERNAME_KEY);
-        String password = request.getParameter(SPRING_SECURITY_FORM_PASSWORD_KEY);
+
+        String messageBody = StreamUtils.copyToString(request.getInputStream(), StandardCharsets.UTF_8);
+
+        Map<String, String> usernamePasswordMap = new ObjectMapper().readValue(messageBody, Map.class);
+
+        String username = usernamePasswordMap.get(SPRING_SECURITY_FORM_USERNAME_KEY);
+        String password = usernamePasswordMap.get(SPRING_SECURITY_FORM_PASSWORD_KEY);
 
         if(username == null || password == null) {
             throw new AuthenticationServiceException("DATA is miss");
