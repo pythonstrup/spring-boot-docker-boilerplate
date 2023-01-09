@@ -1,10 +1,10 @@
 package com.pythonstrup.demo.controller;
 
-import com.pythonstrup.demo.controller.dto.article.request.SaveArticleRequest;
-import com.pythonstrup.demo.controller.dto.article.response.GetArticleResponse;
-import com.pythonstrup.demo.controller.dto.article.response.PostArticleResponse;
-import com.pythonstrup.demo.controller.dto.article.response.ResultGetArticleResponse;
-import com.pythonstrup.demo.controller.dto.article.response.ResultPostArticleResposne;
+import com.pythonstrup.demo.domain.article.dto.request.SaveArticleRequest;
+import com.pythonstrup.demo.domain.article.dto.response.GetArticleResponse;
+import com.pythonstrup.demo.domain.article.dto.response.PostArticleResponse;
+import com.pythonstrup.demo.domain.article.dto.response.ResultGetArticleResponse;
+import com.pythonstrup.demo.domain.article.dto.response.ResultPostArticleResposne;
 import com.pythonstrup.demo.service.ArticleService;
 import com.pythonstrup.demo.utils.swagger.article.ArticleValidationErrorSwagger;
 import io.swagger.v3.oas.annotations.Operation;

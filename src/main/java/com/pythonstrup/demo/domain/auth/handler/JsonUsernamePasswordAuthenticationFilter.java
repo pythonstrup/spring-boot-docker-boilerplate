@@ -1,6 +1,7 @@
 package com.pythonstrup.demo.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pythonstrup.demo.domain.auth.CustomAuthenticationFailureHandler;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;

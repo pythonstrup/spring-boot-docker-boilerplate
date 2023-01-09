@@ -2,7 +2,6 @@ package com.pythonstrup.demo.controller;
 
 import com.pythonstrup.demo.controller.dto.auth.request.SignupRequest;
 import com.pythonstrup.demo.controller.dto.auth.response.SignupResponse;
-import com.pythonstrup.demo.controller.dto.auth.response.result.ResultLoginResponse;
 import com.pythonstrup.demo.controller.dto.auth.response.result.ResultSignupResponse;
 import com.pythonstrup.demo.entity.User;
 import com.pythonstrup.demo.service.AuthService;
@@ -25,12 +24,11 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @Operation(summary = "로그인", description = "유저 정보를 받아 로그인을 진행")
+    @Operation(summary = "회원가입", description = "유저 회원가입")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Success",
-                    content = {@Content(schema = @Schema(implementation = ResultLoginResponse.class))}),
+                    content = {@Content(schema = @Schema(implementation = ResultSignupResponse.class))}),
     })
-
     @PostMapping("signup")
     public ResponseEntity<ResultSignupResponse> signup(@Parameter @Valid @RequestBody SignupRequest signupRequest) {
         User user = authService.signup(signupRequest.toServiceDto());

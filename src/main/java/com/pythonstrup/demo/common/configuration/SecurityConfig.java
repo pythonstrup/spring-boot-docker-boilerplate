@@ -1,6 +1,6 @@
 package com.pythonstrup.demo.configuration;
 
-import com.pythonstrup.demo.security.handler.CustomAuthenticationFailureHandler;
+import com.pythonstrup.demo.domain.auth.CustomAuthenticationFailureHandler;
 import com.pythonstrup.demo.security.handler.CustomAuthenticationManager;
 import com.pythonstrup.demo.security.handler.CustomAuthenticationSuccessHandler;
 import com.pythonstrup.demo.security.handler.JsonUsernamePasswordAuthenticationFilter;
