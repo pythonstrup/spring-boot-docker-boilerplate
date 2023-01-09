@@ -6,10 +6,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serial;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Data
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetails implements UserDetails, Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

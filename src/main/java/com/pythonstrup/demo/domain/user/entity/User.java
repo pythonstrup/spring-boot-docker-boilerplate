@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 @Builder
@@ -15,7 +16,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Data
 @Entity
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,15 +28,15 @@ public class User {
     private String username;
 
     @NotNull
-    @Size(min=4, max=100)
+    @Size(min = 4, max = 100)
     @Column(nullable = false)
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
-            joinColumns = @JoinColumn(name="user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name="role_id", referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Collection<Role> roles;
 }
