@@ -1,8 +1,8 @@
-package com.pythonstrup.demo.security.service;
+package com.pythonstrup.demo.domain.auth.service;
 
-import com.pythonstrup.demo.entity.User;
-import com.pythonstrup.demo.repository.UserRepository;
-import com.pythonstrup.demo.security.dto.CustomUserDetails;
+import com.pythonstrup.demo.domain.user.entity.User;
+import com.pythonstrup.demo.domain.user.repository.UserRepository;
+import com.pythonstrup.demo.domain.auth.dto.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,7 +1,7 @@
-package com.pythonstrup.demo.controller.dto.auth.response.result;
+package com.pythonstrup.demo.domain.auth.dto.response.result;
 
 import com.pythonstrup.demo.common.dto.ResultDTO;
-import com.pythonstrup.demo.controller.dto.auth.response.SignupResponse;
+import com.pythonstrup.demo.domain.auth.dto.response.SignupResponse;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

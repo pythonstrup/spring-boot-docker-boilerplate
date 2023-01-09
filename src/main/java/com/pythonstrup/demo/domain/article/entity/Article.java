@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.entity;
+package com.pythonstrup.demo.domain.article.entity;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

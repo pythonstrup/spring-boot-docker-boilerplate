@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.utils.message;
+package com.pythonstrup.demo.common.utils.message;
 
 public class ExceptionStatus {
 

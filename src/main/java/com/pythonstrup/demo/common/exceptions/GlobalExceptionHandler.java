@@ -1,8 +1,8 @@
-package com.pythonstrup.demo.handler.exceptions;
+package com.pythonstrup.demo.common.exceptions;
 
 import com.pythonstrup.demo.common.dto.ErrorResponse;
-import com.pythonstrup.demo.utils.message.ExceptionMeassge;
-import com.pythonstrup.demo.utils.message.ExceptionStatus;
+import com.pythonstrup.demo.common.utils.message.ExceptionMeassge;
+import com.pythonstrup.demo.common.utils.message.ExceptionStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

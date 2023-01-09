@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.utils.swagger.article;
+package com.pythonstrup.demo.domain.article.swagger;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.controller.dto.auth.service;
+package com.pythonstrup.demo.domain.auth.dto.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

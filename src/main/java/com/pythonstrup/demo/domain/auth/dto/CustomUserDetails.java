@@ -1,6 +1,6 @@
-package com.pythonstrup.demo.security.dto;
+package com.pythonstrup.demo.domain.auth.dto;
 
-import com.pythonstrup.demo.entity.User;
+import com.pythonstrup.demo.domain.user.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

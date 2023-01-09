@@ -1,8 +1,8 @@
-package com.pythonstrup.demo.handler.exceptions;
+package com.pythonstrup.demo.common.exceptions;
 
 
-import com.pythonstrup.demo.utils.message.ExceptionMeassge;
-import com.pythonstrup.demo.utils.message.ExceptionStatus;
+import com.pythonstrup.demo.common.utils.message.ExceptionMeassge;
+import com.pythonstrup.demo.common.utils.message.ExceptionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

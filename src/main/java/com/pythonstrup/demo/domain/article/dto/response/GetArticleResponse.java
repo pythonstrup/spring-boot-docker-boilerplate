@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.controller.dto.article.response;
+package com.pythonstrup.demo.domain.article.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

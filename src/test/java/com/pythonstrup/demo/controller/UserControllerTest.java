@@ -1,9 +1,10 @@
 package com.pythonstrup.demo.controller;
 
-import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
-import com.pythonstrup.demo.entity.User;
-import com.pythonstrup.demo.handler.exceptions.user.UsernameNotFoundException;
-import com.pythonstrup.demo.repository.UserRepository;
+import com.pythonstrup.demo.domain.user.dto.response.ResultFindUserReponse;
+import com.pythonstrup.demo.domain.user.controller.UserController;
+import com.pythonstrup.demo.domain.user.entity.User;
+import com.pythonstrup.demo.domain.user.exception.UsernameNotFoundException;
+import com.pythonstrup.demo.domain.user.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class UserControllerTest {
         userRepository.save(user);
 
         // when
-        ResponseEntity<ResultFindUserReponse> response = userController.findUser("hello");
+        ResponseEntity<ResultFindUserReponse> response = userController.findUserById(1);
 
         // then
         int id = response.getBody().getData().getId();
@@ -43,7 +44,7 @@ public class UserControllerTest {
 
         // when & then
         Assertions.assertThrows(UsernameNotFoundException.class, () -> {
-            userController.findUser("nothing");
+            userController.findUserById(10000);
         });
     }
 }

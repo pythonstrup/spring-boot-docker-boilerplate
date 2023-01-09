@@ -1,7 +1,8 @@
 package com.pythonstrup.demo.service;
 
-import com.pythonstrup.demo.controller.dto.article.service.SaveArticleServiceDTO;
-import com.pythonstrup.demo.entity.Article;
+import com.pythonstrup.demo.domain.article.dto.service.SaveArticleServiceDTO;
+import com.pythonstrup.demo.domain.article.entity.Article;
+import com.pythonstrup.demo.domain.article.service.ArticleService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.entity;
+package com.pythonstrup.demo.domain.user.entity;
 
 
 import jakarta.persistence.Entity;

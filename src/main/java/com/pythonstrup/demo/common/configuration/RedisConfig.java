@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.configuration;
+package com.pythonstrup.demo.common.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,8 @@
-package com.pythonstrup.demo.service;
+package com.pythonstrup.demo.domain.auth.service;
 
-import com.pythonstrup.demo.controller.dto.auth.service.SignupDTO;
-import com.pythonstrup.demo.entity.User;
-import com.pythonstrup.demo.repository.UserRepository;
+import com.pythonstrup.demo.domain.auth.dto.service.SignupDTO;
+import com.pythonstrup.demo.domain.user.entity.User;
+import com.pythonstrup.demo.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

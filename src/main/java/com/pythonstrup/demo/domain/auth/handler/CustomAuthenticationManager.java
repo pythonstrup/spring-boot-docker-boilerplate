@@ -1,7 +1,7 @@
-package com.pythonstrup.demo.security.handler;
+package com.pythonstrup.demo.domain.auth.handler;
 
-import com.pythonstrup.demo.security.dto.CustomUserDetails;
-import com.pythonstrup.demo.security.service.CustomUserDetailsService;
+import com.pythonstrup.demo.domain.auth.dto.CustomUserDetails;
+import com.pythonstrup.demo.domain.auth.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;

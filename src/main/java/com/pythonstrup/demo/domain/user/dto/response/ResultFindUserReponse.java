@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.controller.dto.user.response;
+package com.pythonstrup.demo.domain.user.dto.response;
 
 import com.pythonstrup.demo.common.dto.ResultDTO;
 

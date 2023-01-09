@@ -1,8 +1,8 @@
-package com.pythonstrup.demo.service;
+package com.pythonstrup.demo.domain.user.service;
 
-import com.pythonstrup.demo.entity.User;
-import com.pythonstrup.demo.handler.exceptions.user.UsernameNotFoundException;
-import com.pythonstrup.demo.repository.UserRepository;
+import com.pythonstrup.demo.domain.user.entity.User;
+import com.pythonstrup.demo.domain.user.exception.UsernameNotFoundException;
+import com.pythonstrup.demo.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.pythonstrup.demo.controller.dto.article.request;
+package com.pythonstrup.demo.domain.article.dto.request;
 
-import com.pythonstrup.demo.controller.dto.article.service.SaveArticleServiceDTO;
+import com.pythonstrup.demo.domain.article.dto.service.SaveArticleServiceDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

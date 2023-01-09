@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.configuration;
+package com.pythonstrup.demo.common.configuration;
 
 
 import io.swagger.v3.oas.models.ExternalDocumentation;

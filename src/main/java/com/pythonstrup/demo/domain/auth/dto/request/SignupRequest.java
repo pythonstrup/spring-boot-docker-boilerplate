@@ -1,6 +1,6 @@
-package com.pythonstrup.demo.controller.dto.auth.request;
+package com.pythonstrup.demo.domain.auth.dto.request;
 
-import com.pythonstrup.demo.controller.dto.auth.service.SignupDTO;
+import com.pythonstrup.demo.domain.auth.dto.service.SignupDTO;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

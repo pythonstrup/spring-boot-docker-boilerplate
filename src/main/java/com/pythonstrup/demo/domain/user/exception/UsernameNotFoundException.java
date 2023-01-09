@@ -1,7 +1,7 @@
-package com.pythonstrup.demo.handler.exceptions.user;
+package com.pythonstrup.demo.domain.user.exception;
 
-import com.pythonstrup.demo.handler.exceptions.CustomException;
-import com.pythonstrup.demo.handler.exceptions.ErrorCode;
+import com.pythonstrup.demo.common.exceptions.CustomException;
+import com.pythonstrup.demo.common.exceptions.ErrorCode;
 
 public class UsernameNotFoundException extends CustomException {
     public UsernameNotFoundException() {

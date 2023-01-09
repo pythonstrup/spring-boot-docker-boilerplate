@@ -1,10 +1,10 @@
-package com.pythonstrup.demo.controller;
+package com.pythonstrup.demo.domain.user.controller;
 
-import com.pythonstrup.demo.controller.dto.user.response.FindUserResponse;
-import com.pythonstrup.demo.controller.dto.user.response.ResultFindUserReponse;
-import com.pythonstrup.demo.entity.User;
-import com.pythonstrup.demo.service.UserService;
-import com.pythonstrup.demo.utils.swagger.user.UsernameNotFoundErrorSwagger;
+import com.pythonstrup.demo.domain.user.dto.response.FindUserResponse;
+import com.pythonstrup.demo.domain.user.dto.response.ResultFindUserReponse;
+import com.pythonstrup.demo.domain.user.entity.User;
+import com.pythonstrup.demo.domain.user.service.UserService;
+import com.pythonstrup.demo.domain.user.swagger.UsernameNotFoundErrorSwagger;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

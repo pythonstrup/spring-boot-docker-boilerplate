@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.handler.exceptions;
+package com.pythonstrup.demo.common.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

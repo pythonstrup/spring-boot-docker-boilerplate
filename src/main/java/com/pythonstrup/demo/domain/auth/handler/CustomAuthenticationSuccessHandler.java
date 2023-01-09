@@ -1,4 +1,4 @@
-package com.pythonstrup.demo.security.handler;
+package com.pythonstrup.demo.domain.auth.handler;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

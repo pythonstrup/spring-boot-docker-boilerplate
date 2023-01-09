@@ -1,9 +1,9 @@
-package com.pythonstrup.demo.configuration;
+package com.pythonstrup.demo.common.configuration;
 
-import com.pythonstrup.demo.domain.auth.CustomAuthenticationFailureHandler;
-import com.pythonstrup.demo.security.handler.CustomAuthenticationManager;
-import com.pythonstrup.demo.security.handler.CustomAuthenticationSuccessHandler;
-import com.pythonstrup.demo.security.handler.JsonUsernamePasswordAuthenticationFilter;
+import com.pythonstrup.demo.domain.auth.handler.CustomAuthenticationFailureHandler;
+import com.pythonstrup.demo.domain.auth.handler.CustomAuthenticationManager;
+import com.pythonstrup.demo.domain.auth.handler.CustomAuthenticationSuccessHandler;
+import com.pythonstrup.demo.domain.auth.handler.JsonUsernamePasswordAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;

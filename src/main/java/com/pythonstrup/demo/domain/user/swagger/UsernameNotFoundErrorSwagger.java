@@ -1,7 +1,7 @@
-package com.pythonstrup.demo.utils.swagger.user;
+package com.pythonstrup.demo.domain.user.swagger;
 
-import com.pythonstrup.demo.utils.message.ExceptionMeassge;
-import com.pythonstrup.demo.utils.message.ExceptionStatus;
+import com.pythonstrup.demo.common.utils.message.ExceptionMeassge;
+import com.pythonstrup.demo.common.utils.message.ExceptionStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

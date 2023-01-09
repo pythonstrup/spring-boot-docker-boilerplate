@@ -1,8 +1,8 @@
-package com.pythonstrup.demo.service;
+package com.pythonstrup.demo.domain.article.service;
 
 import com.pythonstrup.demo.domain.article.dto.service.SaveArticleServiceDTO;
-import com.pythonstrup.demo.entity.Article;
-import com.pythonstrup.demo.repository.ArticleRepository;
+import com.pythonstrup.demo.domain.article.entity.Article;
+import com.pythonstrup.demo.domain.article.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
