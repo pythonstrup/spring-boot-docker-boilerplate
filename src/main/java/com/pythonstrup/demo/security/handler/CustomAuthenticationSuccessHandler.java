@@ -19,6 +19,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         HttpSession session = request.getSession();
         // session 최대 유효시간 설정 - 단위는 초(sec)
         session.setMaxInactiveInterval(60 * 30);
-        response.sendRedirect("http://localhost:8080/v1/auth/login/success");
+        response.sendRedirect("/v1/auth/login/success");
+
+        // 물론 아래와 같이 처리해줘도 괜찮다.
+        // response.setStatus(HttpStatus.NO_CONTENT.value());
     }
 }
