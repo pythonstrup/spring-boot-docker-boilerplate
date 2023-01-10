@@ -1,7 +1,7 @@
 package com.pythonstrup.demo.common.exceptions;
 
 import com.pythonstrup.demo.common.dto.ErrorResponse;
-import com.pythonstrup.demo.common.utils.message.ExceptionMeassge;
+import com.pythonstrup.demo.common.utils.message.ExceptionMessage;
 import com.pythonstrup.demo.common.utils.message.ExceptionStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -49,7 +49,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleNotFoundApi() {
         ErrorResponse response = ErrorResponse.builder()
                 .status(ExceptionStatus.PAGE_NOT_FOUND)
-                .message(ExceptionMeassge.PAGE_NOT_FOUND)
+                .message(ExceptionMessage.PAGE_NOT_FOUND)
                 .build();
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
@@ -57,10 +57,10 @@ public class GlobalExceptionHandler {
     // 405
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<ErrorResponse> handleMethodNotAllowed(final HttpRequestMethodNotSupportedException e) {
-        log.error(ExceptionMeassge.METHOD_NOT_ALLOWED, e);
+        log.error(ExceptionMessage.METHOD_NOT_ALLOWED, e);
         ErrorResponse response = ErrorResponse.builder()
                 .status(ExceptionStatus.METHOD_NOT_ALLOWED)
-                .message(ExceptionMeassge.METHOD_NOT_ALLOWED)
+                .message(ExceptionMessage.METHOD_NOT_ALLOWED)
                 .build();
         return new ResponseEntity<>(response, HttpStatus.METHOD_NOT_ALLOWED);
     }

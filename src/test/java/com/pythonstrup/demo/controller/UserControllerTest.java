@@ -25,14 +25,14 @@ public class UserControllerTest {
     @Test
     void findUser_test() {
         // given
-        User user = User.builder().id(1).username("hello").password("1234").build();
+        User user = User.builder().id(1L).username("hello").password("1234").build();
         userRepository.save(user);
 
         // when
-        ResponseEntity<ResultFindUserReponse> response = userController.findUserById(1);
+        ResponseEntity<ResultFindUserReponse> response = userController.findUserById(1L);
 
         // then
-        int id = response.getBody().getData().getId();
+        Long id = response.getBody().getData().getId();
         String username = response.getBody().getData().getUsername();
         Assertions.assertEquals(id, 1);
         Assertions.assertEquals(username, "hello");
@@ -43,8 +43,6 @@ public class UserControllerTest {
         // given
 
         // when & then
-        Assertions.assertThrows(UsernameNotFoundException.class, () -> {
-            userController.findUserById(10000);
-        });
+        Assertions.assertThrows(UsernameNotFoundException.class, () -> userController.findUserById(10000L));
     }
 }

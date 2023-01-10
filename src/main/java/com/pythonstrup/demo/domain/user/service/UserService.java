@@ -12,9 +12,9 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User findByUserId(int id) {
+    public User findByUserId(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new UsernameNotFoundException());
+                .orElseThrow(UsernameNotFoundException::new);
 
         return user;
     }

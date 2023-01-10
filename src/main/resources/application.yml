@@ -18,6 +18,10 @@ spring:
     hibernate:
       ddl-auto: create
     open-in-view: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
   data:
     redis:
       host: localhost
@@ -50,6 +54,10 @@ spring:
     hibernate:
       ddl-auto: create
     open-in-view: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
   data:
     redis:
       host: localhost
@@ -82,6 +90,10 @@ spring:
     hibernate:
       ddl-auto: create
     open-in-view: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
   data:
     redis:
       host: localhost

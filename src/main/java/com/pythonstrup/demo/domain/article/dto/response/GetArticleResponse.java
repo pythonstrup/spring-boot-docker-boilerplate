@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class GetArticleResponse {
 
     @Schema(description = "Key", example = "1")
-    private int id;
+    private Long id;
 
     @Schema(description = "title", example = "제목")
     private String title;

@@ -36,7 +36,7 @@ public class ArticleController {
     public ResponseEntity<ResultGetArticleResponse> get() {
         // 빌더 패턴 사용
         GetArticleResponse data = GetArticleResponse.builder()
-                                            .id(1)
+                                            .id(1L)
                                             .title("Hello")
                                             .content("Hello Contents")
                                             .build();

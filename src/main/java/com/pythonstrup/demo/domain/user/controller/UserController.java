@@ -36,7 +36,7 @@ public class UserController {
                     content = {@Content(schema = @Schema(implementation = UsernameNotFoundErrorSwagger.class))})
     })
     @GetMapping("/user")
-    public ResponseEntity<ResultFindUserReponse> findUserById(@Parameter @RequestParam int userId) {
+    public ResponseEntity<ResultFindUserReponse> findUserById(@Parameter @RequestParam Long userId) {
         User user = userService.findByUserId(userId);
         FindUserResponse data = FindUserResponse.builder()
                 .id(user.getId())

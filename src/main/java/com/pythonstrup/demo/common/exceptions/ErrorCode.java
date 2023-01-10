@@ -1,7 +1,7 @@
 package com.pythonstrup.demo.common.exceptions;
 
 
-import com.pythonstrup.demo.common.utils.message.ExceptionMeassge;
+import com.pythonstrup.demo.common.utils.message.ExceptionMessage;
 import com.pythonstrup.demo.common.utils.message.ExceptionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +11,12 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorCode {
 
-    PAGE_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.PAGE_NOT_FOUND, ExceptionMeassge.PAGE_NOT_FOUND),
+    PAGE_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.PAGE_NOT_FOUND, ExceptionMessage.PAGE_NOT_FOUND),
 
     USERNAME_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.USERNAME_NOT_FOUND,
-                         ExceptionMeassge.USERNAME_NOT_FOUND),
+                         ExceptionMessage.USERNAME_NOT_FOUND),
+
+    ROLE_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.ROLE_NOT_FOUND, ExceptionMessage.ROLE_NOT_FOUND),
 
     ;
 

@@ -3,8 +3,8 @@ package com.pythonstrup.demo.domain.auth.controller;
 import com.pythonstrup.demo.domain.auth.dto.request.SignupRequest;
 import com.pythonstrup.demo.domain.auth.dto.response.SignupResponse;
 import com.pythonstrup.demo.domain.auth.dto.response.result.ResultSignupResponse;
-import com.pythonstrup.demo.domain.user.entity.User;
 import com.pythonstrup.demo.domain.auth.service.AuthService;
+import com.pythonstrup.demo.domain.user.entity.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.stream.Collectors;
 
 @Tag(name = "Auth", description = "User API")
 @RequiredArgsConstructor
@@ -37,6 +39,7 @@ public class AuthController {
         SignupResponse data = SignupResponse.builder()
                 .id(user.getId())
                 .username(user.getUsername())
+                .roles(user.getRoles().stream().map(value -> value.getName()).collect(Collectors.toList()))
                 .build();
         ResultSignupResponse response = new ResultSignupResponse("OK", "", data);
         return new ResponseEntity<>(response, HttpStatus.OK);

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class FindUserResponse {
 
     @Schema(description = "유저 Key", example = "1")
-    private int id;
+    private Long id;
 
     @Schema(description = "유저 아이디", example = "pythonstrup")
     private String username;

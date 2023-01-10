@@ -1,24 +1,24 @@
 package com.pythonstrup.demo.domain.user.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+
 @NoArgsConstructor
+@Data
 @Entity
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
+    @Column(unique = true)
     private String name;
 
-    public Role(final String name){
-        super();
-        this.name = name;
-    }
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users;
 }
