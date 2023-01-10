@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
@@ -38,14 +36,12 @@ public class SecurityConfig {
     @Bean
     @Order(SecurityProperties.BASIC_AUTH_ORDER)
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        AuthenticationManager authenticationManager = authenticationManager(http.getSharedObject(AuthenticationConfiguration.class));
-
         http.csrf().disable();
 
         http.formLogin().disable();
 
         http.addFilterBefore(
-                authenticationFilter(authenticationManager),
+                authenticationFilter(),
                 UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeHttpRequests((authorize) -> authorize
@@ -65,17 +61,11 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
-
     //Filter 등록을 위한 Bean
     @Bean
-    public JsonUsernamePasswordAuthenticationFilter authenticationFilter(AuthenticationManager authenticationManager) {
+    public JsonUsernamePasswordAuthenticationFilter authenticationFilter() {
         JsonUsernamePasswordAuthenticationFilter authenticationFilter = new JsonUsernamePasswordAuthenticationFilter(customAuthenticationSuccessHandler,
                 customAuthenticationFailureHandler, customAuthenticationManager);
-        authenticationFilter.setAuthenticationManager(authenticationManager);
 
         SecurityContextRepository contextRepository = new HttpSessionSecurityContextRepository();
         authenticationFilter.setSecurityContextRepository(contextRepository);

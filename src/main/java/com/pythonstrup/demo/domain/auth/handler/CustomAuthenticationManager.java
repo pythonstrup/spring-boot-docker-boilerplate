@@ -26,6 +26,6 @@ public class CustomAuthenticationManager implements AuthenticationManager {
             throw new BadCredentialsException("Not Found User");
         }
 
-        return new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+        return new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), user.getAuthorities());
     }
 }
