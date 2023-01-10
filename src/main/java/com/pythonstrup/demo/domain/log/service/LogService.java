@@ -18,7 +18,6 @@ public class LogService {
         Log logEntity = Log.builder()
                 .username(username)
                 .contents(logContents)
-                .createdAt(new Date())
                 .build();
         logRepository.save(logEntity);
     }
