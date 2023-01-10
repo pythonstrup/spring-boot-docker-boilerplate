@@ -18,7 +18,7 @@ public class ArticleService {
         Article article = new Article();
         article.setTitle(saveArticleServiceDTO.getTitle());
         article.setContent(saveArticleServiceDTO.getContents());
-        article.setCreateAt(new Date());
+        article.setCreatedAt(new Date());
         return articleRepository.save(article);
     }
 }

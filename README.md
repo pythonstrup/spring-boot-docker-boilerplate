@@ -14,6 +14,7 @@
 - MySQL Driver
 - Spring Data Redis(Access+Driver)
 - Spring Validation
+- Spring AOP
 - Lombok
 - Swagger
 

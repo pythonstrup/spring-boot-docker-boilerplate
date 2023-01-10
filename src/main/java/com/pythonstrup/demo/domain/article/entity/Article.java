@@ -25,5 +25,5 @@ public class Article {
     private String content;
 
     @NotNull
-    private Date createAt;
+    private Date createdAt;
 }
