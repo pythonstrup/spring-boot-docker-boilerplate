@@ -18,6 +18,6 @@ public class GetArticleResponse {
     @Schema(description = "title", example = "제목")
     private String title;
 
-    @Schema(description = "content", example = "내용")
-    private String content;
+    @Schema(description = "contents", example = "내용")
+    private String contents;
 }

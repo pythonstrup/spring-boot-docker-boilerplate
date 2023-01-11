@@ -1,5 +1,6 @@
 package com.pythonstrup.demo.domain.article.service;
 
+import com.pythonstrup.demo.domain.article.dto.response.PostArticleResponse;
 import com.pythonstrup.demo.domain.article.dto.service.SaveArticleServiceDTO;
 import com.pythonstrup.demo.domain.article.entity.Article;
 import com.pythonstrup.demo.domain.article.repository.ArticleRepository;
@@ -14,11 +15,10 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
 
-    public Article save(SaveArticleServiceDTO saveArticleServiceDTO) {
-        Article article = new Article();
-        article.setTitle(saveArticleServiceDTO.getTitle());
-        article.setContent(saveArticleServiceDTO.getContents());
-        article.setCreatedAt(new Date());
-        return articleRepository.save(article);
+    public PostArticleResponse save(SaveArticleServiceDTO saveArticleServiceDTO) {
+        Article article = Article.of(saveArticleServiceDTO);
+        Article result = articleRepository.save(article);
+        PostArticleResponse responseDto = PostArticleResponse.of(result);
+        return responseDto;
     }
 }

@@ -1,5 +1,6 @@
 package com.pythonstrup.demo.domain.user.entity;
 
+import com.pythonstrup.demo.domain.auth.dto.service.SignupDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 @Builder
 @AllArgsConstructor
@@ -39,4 +41,12 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Collection<Role> roles;
+
+    public static User of(SignupDTO dto, String password, Collection<Role> roles) {
+        return User.builder()
+                .username(dto.getUsername())
+                .password(password)
+                .roles(roles)
+                .build();
+    }
 }

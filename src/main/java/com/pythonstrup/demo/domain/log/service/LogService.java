@@ -5,8 +5,6 @@ import com.pythonstrup.demo.domain.log.repository.LogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-
 @RequiredArgsConstructor
 @Service
 public class LogService {

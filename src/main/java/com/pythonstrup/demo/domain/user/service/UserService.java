@@ -1,5 +1,6 @@
 package com.pythonstrup.demo.domain.user.service;
 
+import com.pythonstrup.demo.domain.user.dto.response.FindUserResponse;
 import com.pythonstrup.demo.domain.user.entity.User;
 import com.pythonstrup.demo.domain.user.exception.UsernameNotFoundException;
 import com.pythonstrup.demo.domain.user.repository.UserRepository;
@@ -12,10 +13,11 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User findByUserId(Long id) {
+    public FindUserResponse findByUserId(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(UsernameNotFoundException::new);
 
-        return user;
+        FindUserResponse responseDto = FindUserResponse.of(user);
+        return responseDto;
     }
 }

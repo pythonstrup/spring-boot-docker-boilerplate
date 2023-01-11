@@ -38,7 +38,7 @@ public class ArticleController {
         GetArticleResponse data = GetArticleResponse.builder()
                                             .id(1L)
                                             .title("Hello")
-                                            .content("Hello Contents")
+                                            .contents("Hello Contents")
                                             .build();
         ResultGetArticleResponse response = new ResultGetArticleResponse("OK", "", data);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -53,8 +53,7 @@ public class ArticleController {
     })
     @PostMapping("/article")
     public ResponseEntity<ResultPostArticleResposne> save(@Parameter @Valid @RequestBody SaveArticleRequest saveArticleRequest) {
-        String id = articleService.save(saveArticleRequest.toServiceDto()).getId();
-        PostArticleResponse data = PostArticleResponse.builder().id(id).build();
+        PostArticleResponse data = articleService.save(saveArticleRequest.toServiceDto());
         ResultPostArticleResposne response = new ResultPostArticleResposne("OK", "", data);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

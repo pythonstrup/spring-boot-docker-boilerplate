@@ -32,7 +32,7 @@ public class LogAop {
         log.info("--------------method name = {} --------------", method.getName());
 
         Object[] args = joinPoint.getArgs();
-        if (args.length <= 0) log.info("no parameter");
+        if (args.length == 0) log.info("no parameter");
         for (Object arg: args) {
             log.info("parameter type = {}", arg.getClass().getSimpleName());
             log.info("parameter value = {}", arg);
@@ -44,7 +44,7 @@ public class LogAop {
         Method method = getMethod(joinPoint);
         log.info("--------------method name = {} --------------", method.getName());
 
-        String logContents = "title: " + article.getTitle() + ", contents: " + article.getContent() + " 작성";
+        String logContents = "title: " + article.getTitle() + ", contents: " + article.getContents() + " 작성";
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         logService.saveLog(logContents, username);
     }
