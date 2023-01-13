@@ -1,8 +1,10 @@
 package com.pythonstrup.demo.domain.auth.handler;
 
-import com.pythonstrup.demo.domain.auth.dto.CustomUserDetails;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pythonstrup.demo.domain.auth.dto.CustomUserDetailsDTO;
 import com.pythonstrup.demo.domain.auth.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,15 +13,18 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class CustomAuthenticationManager implements AuthenticationManager {
     private final CustomUserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
+    private final ObjectMapper objectMapper;
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        CustomUserDetails user = (CustomUserDetails) userDetailsService.loadUserByUsername(authentication.getName());
+        CustomUserDetailsDTO user = (CustomUserDetailsDTO) userDetailsService.loadUserByUsername(authentication.getName());
 
         String requestPassword = authentication.getCredentials().toString();
         if (!passwordEncoder.matches(requestPassword, user.getPassword())) {

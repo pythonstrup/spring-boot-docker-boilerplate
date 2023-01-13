@@ -13,8 +13,8 @@ public enum ErrorCode {
 
     PAGE_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.PAGE_NOT_FOUND, ExceptionMessage.PAGE_NOT_FOUND),
 
-    USERNAME_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.USERNAME_NOT_FOUND,
-                         ExceptionMessage.USERNAME_NOT_FOUND),
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.USER_NOT_FOUND,
+                         ExceptionMessage.USER_NOT_FOUND),
 
     ROLE_NOT_FOUND(HttpStatus.NOT_FOUND, ExceptionStatus.ROLE_NOT_FOUND, ExceptionMessage.ROLE_NOT_FOUND),
 

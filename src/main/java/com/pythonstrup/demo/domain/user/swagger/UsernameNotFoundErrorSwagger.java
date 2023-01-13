@@ -15,10 +15,10 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class UsernameNotFoundErrorSwagger {
-    @Schema(description = "에러 명칭", example = ExceptionStatus.USERNAME_NOT_FOUND)
+    @Schema(description = "에러 명칭", example = ExceptionStatus.USER_NOT_FOUND)
     private String status;
 
-    @Schema(description = "상세 메시지", example = ExceptionMessage.USERNAME_NOT_FOUND)
+    @Schema(description = "상세 메시지", example = ExceptionMessage.USER_NOT_FOUND)
     private String message;
 
     @Schema(description = "에러 목록", example = "null", type="null")

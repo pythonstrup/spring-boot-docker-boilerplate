@@ -3,7 +3,7 @@ package com.pythonstrup.demo.domain.user.service;
 import com.pythonstrup.demo.domain.user.dto.response.FindUserResponse;
 import com.pythonstrup.demo.domain.user.entity.Role;
 import com.pythonstrup.demo.domain.user.entity.User;
-import com.pythonstrup.demo.domain.user.exception.UsernameNotFoundException;
+import com.pythonstrup.demo.domain.user.exception.UserNotFoundException;
 import com.pythonstrup.demo.domain.user.repository.UserRepository;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -71,7 +71,7 @@ class UserServiceTest {
                 when(userRepository.findById(id)).thenReturn(Optional.ofNullable(null));
 
                 // then
-                Assertions.assertThrows(UsernameNotFoundException.class, () -> {
+                Assertions.assertThrows(UserNotFoundException.class, () -> {
                     userService.findByUserId(id);
                 });
             }

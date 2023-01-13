@@ -31,6 +31,7 @@ public class ArticleController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Success",
                     content = {@Content(schema = @Schema(implementation = ResultGetArticleResponse.class))}),
+            @ApiResponse(responseCode = "400", description = "잘못")
     })
     @GetMapping("/article")
     public ResponseEntity<ResultGetArticleResponse> get() {

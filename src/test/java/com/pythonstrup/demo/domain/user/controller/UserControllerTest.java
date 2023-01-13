@@ -4,8 +4,7 @@ import com.pythonstrup.demo.domain.user.dto.response.FindUserResponse;
 import com.pythonstrup.demo.domain.user.dto.response.ResultFindUserReponse;
 import com.pythonstrup.demo.domain.user.entity.Role;
 import com.pythonstrup.demo.domain.user.entity.User;
-import com.pythonstrup.demo.domain.user.exception.UsernameNotFoundException;
-import com.pythonstrup.demo.domain.user.repository.UserRepository;
+import com.pythonstrup.demo.domain.user.exception.UserNotFoundException;
 import com.pythonstrup.demo.domain.user.service.UserService;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,13 +12,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -78,10 +74,10 @@ class UserControllerTest {
                 //given
 
                 // when
-                when(userService.findByUserId(id)).thenThrow(UsernameNotFoundException.class);
+                when(userService.findByUserId(id)).thenThrow(UserNotFoundException.class);
 
                 // then
-                Assertions.assertThrows(UsernameNotFoundException.class, () -> {
+                Assertions.assertThrows(UserNotFoundException.class, () -> {
                     userController.findByUserId(id);
                 });
             }

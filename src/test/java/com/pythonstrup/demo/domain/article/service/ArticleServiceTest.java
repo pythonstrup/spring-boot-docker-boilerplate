@@ -1,14 +1,13 @@
 package com.pythonstrup.demo.domain.article.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pythonstrup.demo.common.exceptions.CustomException;
-import com.pythonstrup.demo.domain.article.dto.request.SaveArticleRequest;
 import com.pythonstrup.demo.domain.article.dto.response.PostArticleResponse;
-import com.pythonstrup.demo.domain.article.dto.response.ResultPostArticleResposne;
 import com.pythonstrup.demo.domain.article.dto.service.SaveArticleServiceDTO;
 import com.pythonstrup.demo.domain.article.entity.Article;
 import com.pythonstrup.demo.domain.article.repository.ArticleRepository;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -32,16 +31,16 @@ class ArticleServiceTest {
         private String title;
         private String content;
 
-        @BeforeEach
         void setUp() {
             id = "1";
             title = "title";
-            content = "content";
-        }
+            content = "content";}
 
         @Nested
         @DisplayName("정상적으로 Article이 저장된 케이스")
         class SuccessCase {
+
+
             @Test
             void postArticleTest() {
                 //given

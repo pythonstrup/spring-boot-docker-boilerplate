@@ -52,3 +52,7 @@ server:port/swagger-ui
 ```
 server:port/api-docs
 ```
+
+# Code Coverage
+
+<img alt="code coverage percentage" src="docs/code_coverage.png">

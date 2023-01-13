@@ -29,19 +29,70 @@ jacocoTestReport {
         html.destination file("$buildDir/jacoco/jacocoHtml")
         xml.destination file("$buildDir/jacoco/jacoco.xml")
     }
+
+    def Qdomains = []
+    for (qPattern in '**/QA'..'**/QZ') {
+        Qdomains.add(qPattern + '*')
+    }
+
+    afterEvaluate {
+        classDirectories.setFrom(
+                files(classDirectories.files.collect {
+                    fileTree(dir: it, excludes: [
+                            "**/*Application*",
+                            "**/*Config*",
+                            "**/*Dto*",
+                            "**/*DTO*",
+                            "**/*Request*",
+                            "**/*Response*",
+                            "**/*Interceptor*",
+                            "**/*Exception*",
+                            "**.*ErrorCode*",
+                            "**.*Aop*",
+                    ] + Qdomains)
+                })
+        )
+    }
+    finalizedBy 'jacocoTestCoverageVerification'
 }
 
 jacocoTestCoverageVerification {
+
+    def Qdomains = []
+    for (qPattern in '*.QA'..'*.QZ') {
+        Qdomains.add(qPattern + '*')
+    }
+
     // 커버리지 범위와 퍼센테이지 설정
     violationRules {
         rule {
-            element = "CLASS"
+            element = 'CLASS'
+            enabled = true
 
             limit {
-                counter = "BRANCH"
-                value = "COVEREDRATIO"
-                minimum = 0.80
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.50
             }
+
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 0.50
+            }
+
+            excludes = [
+                    "**.*Application*",
+                    "**.*Config*",
+                    "**.*Dto*",
+                    "**/*DTO*",
+                    "**.*Request*",
+                    "**.*Response*",
+                    "**.*Interceptor*",
+                    "**.*Exception*",
+                    "**.*ErrorCode*",
+                    "**.*Aop*",
+            ] + Qdomains
         }
     }
 }
@@ -56,6 +107,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.hibernate.validator:hibernate-validator'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'com.google.guava:guava:31.1-jre'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j'

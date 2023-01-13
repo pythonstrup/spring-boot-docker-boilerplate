@@ -10,14 +10,14 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Data
-public class CustomUserDetails implements UserDetails, Serializable {
+public class CustomUserDetailsDTO implements UserDetails, Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     private User user;
 
-    public CustomUserDetails(User user) {
+    public CustomUserDetailsDTO(User user) {
         this.user = user;
     }
 

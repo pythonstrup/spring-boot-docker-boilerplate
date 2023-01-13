@@ -37,11 +37,11 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("login/success")
-    public void loginSuccess() {}
-
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @PostMapping("login/fail")
-    public void loginFailure() {}
+    @Operation(summary = "로그인", description = "유저 로그인")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "NO_CONTENT"),
+            @ApiResponse(responseCode = "401", description = "UNAUTHORIZED")
+    })
+    @PostMapping("/login")
+    public void login() {}
 }

@@ -2,7 +2,7 @@ package com.pythonstrup.demo.domain.auth.service;
 
 import com.pythonstrup.demo.domain.user.entity.User;
 import com.pythonstrup.demo.domain.user.repository.UserRepository;
-import com.pythonstrup.demo.domain.auth.dto.CustomUserDetails;
+import com.pythonstrup.demo.domain.auth.dto.CustomUserDetailsDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +22,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username Not Found"));
 
-        return new CustomUserDetails(user);
+        return new CustomUserDetailsDTO(user);
     }
 }

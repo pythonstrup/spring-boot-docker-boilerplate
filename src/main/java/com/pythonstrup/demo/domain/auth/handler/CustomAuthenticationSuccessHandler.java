@@ -3,6 +3,7 @@ package com.pythonstrup.demo.domain.auth.handler;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -15,13 +16,13 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
-                                        Authentication authentication) throws IOException {
+                                        Authentication authentication) {
         HttpSession session = request.getSession();
         // session 최대 유효시간 설정 - 단위는 초(sec)
         session.setMaxInactiveInterval(60 * 30);
-        response.sendRedirect("/v1/auth/login/success");
+        response.setStatus(HttpStatus.NO_CONTENT.value());
 
         // 물론 아래와 같이 처리해줘도 괜찮다.
-        // response.setStatus(HttpStatus.NO_CONTENT.value());
+        // response.sendRedirect("/v1/auth/login/success");
     }
 }
